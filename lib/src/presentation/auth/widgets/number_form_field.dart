@@ -1,0 +1,61 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
+import 'package:wrestling_hub/core/constants.dart';
+
+
+class NumberFormField extends StatelessWidget {
+
+  final ValueChanged<String> onChanged;
+  final int? maxLength;
+  final int minLine;
+  final int? maxLine;
+  final String hintText;
+  final TextInputType inputType;
+  final TextEditingController controller;
+
+  const NumberFormField({
+    super.key,
+    required this.controller,
+    required this.inputType,
+    required this.onChanged,
+    this.hintText = '',
+    this.maxLength,
+    this.minLine = 1,
+    this.maxLine,
+  });
+
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: controller,
+      maxLines: maxLine,
+      minLines: minLine,
+      maxLength: maxLength,
+      style: const TextStyle(fontFamily: 'Crimson',fontSize: 16,fontWeight: FontWeight.bold,color: Color(0xffB89E9E)),
+      keyboardType: inputType,
+      inputFormatters: [
+        PhoneInputFormatter()
+      ],
+      decoration: InputDecoration(
+        counterText: '',
+        fillColor: WrestlingColors.color_bottom_nav,
+        filled: true,
+        contentPadding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10.0),
+        hintText: hintText, alignLabelWithHint: true ,hintStyle: const TextStyle(fontFamily: 'Crimson',fontSize: 13,fontWeight: FontWeight.bold,color: Color(0xffB89E9E)),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(18),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(18),
+        ),
+      ),
+      onChanged: (v) {
+        return onChanged(v);
+      },
+    );
+  }
+
+
+
+}
