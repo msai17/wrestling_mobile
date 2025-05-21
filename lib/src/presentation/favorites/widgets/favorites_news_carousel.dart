@@ -21,7 +21,7 @@ class FavoritesNewsCarousel extends StatelessWidget {
         itemBuilder: (context, index) {
           return WrestlingNewsCard(
             onPressed: (News news) {
-              GoRouter.of(context).pushNamed(AppRoute.full_news, extra: news);
+              GoRouter.of(context).pushNamed(AppRoute.fullNews, extra: news);
             },
             news: newsList[index],
           );

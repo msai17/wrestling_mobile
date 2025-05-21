@@ -80,7 +80,7 @@ class _VideosScreen extends State<VideosScreen> with TickerProviderStateMixin, A
         ),
         actions: [
           IconButton(onPressed: () {
-            GoRouter.of(context).push(AppRoute.vk_video_info);
+            GoRouter.of(context).push(AppRoute.vkVideoInfo);
           }, 
           icon: const Icon(Icons.info_outline))
         ],

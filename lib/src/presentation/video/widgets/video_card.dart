@@ -39,7 +39,7 @@ class VideoCard extends StatelessWidget {
     return SizedBox(
       child: InkWell(
         onTap: () {
-          GoRouter.of(context).pushNamed(AppRoute.vk_video, extra: video);
+          GoRouter.of(context).pushNamed(AppRoute.vkVideo, extra: video);
         },
         child: Column(
           children: [
@@ -100,7 +100,7 @@ class VideoCard extends StatelessWidget {
                           ),
                           PopupMenuItem(
                               onTap: ()  {
-                                GoRouter.of(context).push(AppRoute.vk_video_info);
+                                GoRouter.of(context).push(AppRoute.vkVideoInfo);
                               },
                               child:Text('Нашли свое видео ?',style: Theme.of(context).textTheme.labelSmall)
                           ),

@@ -37,6 +37,7 @@ class ErrorPage extends StatelessWidget {
                 primaryColor: AppColors.colorRed,
                 isFilled: true,
                 onPressed: () {
+                  return onPress!();
                 }
             ),
           ),

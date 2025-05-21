@@ -96,7 +96,7 @@ class _SearchNewsScreen extends State<SearchNewsScreen> {
                                  : const WrestlingProgressBar());
                            } else {
                              return WrestlingNewsCard(news: news[index], onPressed: (News value) {
-                               GoRouter.of(context).pushNamed(AppRoute.full_news, extra: news[index]);
+                               GoRouter.of(context).pushNamed(AppRoute.fullNews, extra: news[index]);
                              },
                              );
                         }

@@ -74,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
         actions: [
           IconButton(
               onPressed: () {
-                GoRouter.of(context).pushNamed(AppRoute.search);
+                GoRouter.of(context).pushNamed(AppRoute.searchNews);
               },
               icon: const Icon(Icons.search_rounded)
           ),
@@ -166,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
                                       return WrestlingNewsCard(
                                         news: news[index],
                                         onPressed: (News news) {
-                                          GoRouter.of(context).pushNamed(AppRoute.full_news, extra: news);
+                                          GoRouter.of(context).pushNamed(AppRoute.fullNews, extra: news);
                                         },
                                       );
                                     }

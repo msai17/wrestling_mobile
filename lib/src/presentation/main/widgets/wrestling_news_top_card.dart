@@ -22,7 +22,7 @@ class WrestlingNewsTopCard extends StatelessWidget {
         highlightColor: Colors.transparent,
         splashColor: Colors.transparent,
         onTap: () {
-          GoRouter.of(context).pushNamed(AppRoute.full_news, extra: news);
+          GoRouter.of(context).pushNamed(AppRoute.fullNews, extra: news);
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

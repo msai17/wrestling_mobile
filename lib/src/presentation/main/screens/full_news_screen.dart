@@ -1,6 +1,5 @@
 import 'package:widget_zoom/widget_zoom.dart';
 import 'package:wrestling_hub/core/constants/app_colors.dart';
-import 'package:wrestling_hub/core/constants/app_config.dart';
 import 'package:wrestling_hub/core/constants/app_resource.dart';
 import 'package:wrestling_hub/core/constants/app_urls.dart';
 import 'package:wrestling_hub/core/route/app_router.dart';
@@ -69,7 +68,7 @@ class _FullNewsScreen extends State<FullNewsScreen>  {
            actions: [
              IconButton(
                  onPressed: () {
-                   GoRouter.of(context).pushNamed(AppRoute.comment_news, pathParameters: {'id': '${state.full!.id}'});
+                   GoRouter.of(context).pushNamed(AppRoute.commentNews, pathParameters: {'id': '${state.full!.id}'});
                  },
                  icon: Row(
                    children: [

@@ -19,21 +19,21 @@ import 'app_router.dart';
 class AppRouterConfig {
 
   late final GoRouter router = GoRouter(
-      routes: _routes,
+      routes: routes,
       initialLocation: AppRoute.root,
   );
 
-  late final _routes = <RouteBase> [
+  List<RouteBase> get routes => [
     GoRoute(
-        path: '/',
+        path: AppRoute.root,
         name: AppRoute.root,
         builder: (BuildContext context,state) {
           return const SplashScreen();
         }
     ),
     GoRoute(
-        path: '/auth',
-        name: AppRoute.auth,
+        path: AppRoute.phoneField,
+        name: AppRoute.phoneField,
         builder: (BuildContext context,state) => const NumberPhoneScreen()
     ),
     GoRoute(
@@ -46,28 +46,28 @@ class AppRouterConfig {
       },
     ),
     GoRoute(
-        path: '/profile/edit',
-        name: AppRoute.profile_edit,
+        path: AppRoute.profileEdit,
+        name: AppRoute.profileEdit,
         builder: (BuildContext context,state) => const ProfileEditScreen(),
     ),
     GoRoute(
-        path: '/onboard',
+        path: AppRoute.onboard,
         name: AppRoute.onboard,
         builder: (BuildContext context,state) => const OnBoardingScreen()
     ),
     GoRoute(
-        path: '/main',
-        name: AppRoute.main,
+        path: AppRoute.home,
+        name: AppRoute.home,
         builder: (BuildContext context,state) => const NavBarMainScreen()
     ),
     GoRoute(
-        path: '/search',
-        name: AppRoute.search,
+        path: AppRoute.searchNews,
+        name: AppRoute.searchNews,
         builder: (context, state)  =>  const SearchNewsScreen()
     ),
     GoRoute(
-        path: '/full_news',
-        name: AppRoute.full_news,
+        path: AppRoute.fullNews,
+        name: AppRoute.fullNews,
         builder: (context, state)  {
           News fullNews = state.extra as News;
           return FullNewsScreen(
@@ -76,8 +76,8 @@ class AppRouterConfig {
         }
     ),
     GoRoute(
-        path: '/comments_news/:id',
-        name: AppRoute.comment_news,
+        path: '/news/comments/:id',
+        name: AppRoute.commentNews,
         builder: (context, state)  {
           return NewsCommentsScreen(
             idNews: state.pathParameters['id'].toString(),
@@ -85,8 +85,8 @@ class AppRouterConfig {
         }
     ),
     GoRoute(
-        path: '/vk_video',
-        name: AppRoute.vk_video,
+        path: AppRoute.vkVideoInfo,
+        name: AppRoute.vkVideoInfo,
         builder: (context, state)  {
           Video video = state.extra as Video;
           return VideoVkPlayerScreen(
@@ -95,14 +95,14 @@ class AppRouterConfig {
         }
     ),
     GoRoute(
-        path: '/vk_video_info',
-        name: AppRoute.vk_video_info,
+        path: AppRoute.vkVideoInfo,
+        name: AppRoute.vkVideoInfo,
         builder: (context, state)  {
           return const VideoInfoScreen();
         }
     ),
     GoRoute(
-        path: '/privacy',
+        path: AppRoute.privacy,
         name: AppRoute.privacy,
         builder: (context, state)  {
           return const PrivacyPolicyScreen();

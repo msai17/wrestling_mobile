@@ -68,7 +68,7 @@ class _OnBoardingScreen extends State<OnBoardingScreen> {
                       onPressed: () {
                         if(_controller.page == 2) {
                           UserData.instance.setFirstLaunch();
-                          context.go(AppRoute.main);
+                          context.go(AppRoute.home);
                         }else{
                           _controller.nextPage(duration: const Duration(milliseconds: 500), curve:  Curves.easeIn);
                         }
