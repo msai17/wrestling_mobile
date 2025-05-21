@@ -1,8 +1,7 @@
-import 'package:wrestling_hub/core/constants.dart';
+import 'package:wrestling_hub/core/constants/app_colors.dart';
+import 'package:wrestling_hub/core/constants/app_config.dart';
 import 'package:wrestling_hub/core/route/app_router.dart';
 import 'package:wrestling_hub/core/utils/navbar_item.dart';
-import 'package:wrestling_hub/core/widgets/error_page.dart';
-import 'package:wrestling_hub/core/widgets/wrestling_progress_bar.dart';
 import 'package:wrestling_hub/src/data/main/models/news.dart';
 import 'package:wrestling_hub/src/presentation/main/blocs/main/main_bloc.dart';
 import 'package:wrestling_hub/src/presentation/main/widgets/wrestling_news_card.dart';
@@ -12,6 +11,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/error_page.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/wrestling_progress_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -62,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
                   onTap: () {
                     context.read<NavbarMainBloc>().add(NavbarItemPressed(NavbarItem.values.elementAt(2),2));
                     },
-                  child: SizedBox()
+                  child: const SizedBox()
                 ),
                 const SizedBox(width: 10),
                 Text('Wrestling Hub',style: Theme.of(context).textTheme.titleLarge),
@@ -81,9 +82,9 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
       ),
       body: RefreshIndicator(
         key: _refreshKey,
-        color: WrestlingColors.color_accent,
+        color: AppColors.colorAccent,
         strokeWidth: 2.75,
-        backgroundColor: WrestlingColors.color_background,
+        backgroundColor: AppColors.colorBackground,
         onRefresh: () async {
           context.read<MainBloc>().page = 0;
           return context.read<MainBloc>().add(NewsFetchEvent());

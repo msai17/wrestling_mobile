@@ -1,6 +1,7 @@
-import 'package:wrestling_hub/core/constants.dart';
+import 'package:wrestling_hub/core/constants/app_colors.dart';
+import 'package:wrestling_hub/core/constants/app_config.dart';
+import 'package:wrestling_hub/core/constants/app_urls.dart';
 import 'package:wrestling_hub/core/route/app_router.dart';
-import 'package:wrestling_hub/core/widgets/wrestling_button.dart';
 import 'package:wrestling_hub/src/presentation/auth/blocs/number_phone/number_phone_bloc.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:wrestling_hub/src/presentation/auth/widgets/number_form_field.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/wrestling_button.dart';
 
 class NumberPhoneScreen extends StatefulWidget {
 
@@ -31,7 +33,7 @@ class _NumberPhoneScreen extends State<NumberPhoneScreen>{
 
   @override
   Widget build(BuildContext context) {
-    const noUnderlineStyle = TextStyle(fontWeight: FontWeight.normal, fontSize: 14, fontFamily: 'Crimson', color: WrestlingColors.color_small_text);
+    const noUnderlineStyle = TextStyle(fontWeight: FontWeight.normal, fontSize: 14, fontFamily: 'Crimson', color: AppColors.colorSmallText);
     return BlocConsumer<NumberPhoneBloc, bool>(
     listener: (context, state) {
       state;
@@ -44,7 +46,7 @@ class _NumberPhoneScreen extends State<NumberPhoneScreen>{
         child: WrestlingButton(
             height: 40,
             titleWidget: const Text('Далее', style: TextStyle(color: Colors.white, fontSize: 14, fontFamily: 'Crimson')),
-            primaryColor: WrestlingColors.color_red,
+            primaryColor: AppColors.colorRed,
             isFilled: state,
             onPressed: () {
               if(numberController.text.length > 15) {
@@ -74,14 +76,14 @@ class _NumberPhoneScreen extends State<NumberPhoneScreen>{
                       }
                   ),
                   const SizedBox(height: 12),
-                  const Text("Мы отправим вам текстовое сообщение с кодом подтверждения",style: TextStyle(fontFamily:'Crimson',fontWeight: FontWeight.normal,fontSize: 14,color: WrestlingColors.color_small_text)),
+                  const Text("Мы отправим вам текстовое сообщение с кодом подтверждения",style: TextStyle(fontFamily:'Crimson',fontWeight: FontWeight.normal,fontSize: 14,color: AppColors.colorSmallText)),
                   const SizedBox(height: 12),
                   RichText(
                     textAlign: TextAlign.start,
                     text: TextSpan(
                       children: <TextSpan>[
                         const TextSpan(text: 'Нажимая кнопку “Далее”, я подтверждаю, что ознакомлен(а) с условием ', style: noUnderlineStyle,),
-                        TextSpan(text: 'Политики конфиденциальности', style: const TextStyle(fontWeight: FontWeight.normal, fontSize: 14, fontFamily: 'Roboto', color: Color(0xff61697D), decoration: TextDecoration.underline), recognizer: TapGestureRecognizer()..onTap = ()=> launchUrl(Uri.parse(privacy))),
+                        TextSpan(text: 'Политики конфиденциальности', style: const TextStyle(fontWeight: FontWeight.normal, fontSize: 14, fontFamily: 'Roboto', color: Color(0xff61697D), decoration: TextDecoration.underline), recognizer: TapGestureRecognizer()..onTap = ()=> launchUrl(Uri.parse(AppUrls.privacy))),
                         const TextSpan(text: ' и принимаю  условия', style: noUnderlineStyle),
                       ],
                     ),

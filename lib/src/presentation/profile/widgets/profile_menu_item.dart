@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../core/constants.dart';
+import 'package:wrestling_hub/core/constants/app_colors.dart';
 
 class ProfileMenuItem extends StatelessWidget {
 
@@ -32,7 +32,7 @@ class ProfileMenuItem extends StatelessWidget {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: WrestlingColors.color_bottom_nav
+                  color: AppColors.colorBottomNav
                 ),
                 child: Icon(icon,size: 20,color: Colors.white),
               ),

@@ -1,10 +1,9 @@
-import 'package:wrestling_hub/core/widgets/wrestling_tab_bar.dart';
 import 'package:wrestling_hub/src/presentation/favorites/blocs/favorite_bloc.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wrestling_hub/src/presentation/favorites/widgets/favorites_news_carousel.dart';
 import 'package:wrestling_hub/src/presentation/favorites/widgets/favorites_videos_carousel.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/wrestling_tab_bar.dart';
 
 class FavoritesScreen extends StatefulWidget {
 

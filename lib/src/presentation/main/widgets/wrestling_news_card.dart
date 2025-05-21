@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wrestling_hub/core/utils/wrestling_time_stamp.dart';
-import 'package:wrestling_hub/core/widgets/show_image.dart';
 import 'package:wrestling_hub/src/data/main/models/news.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/show_image.dart';
 
 class WrestlingNewsCard extends StatelessWidget {
 

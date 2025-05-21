@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wrestling_hub/core/constants.dart';
+import 'package:wrestling_hub/core/constants/app_colors.dart';
+import 'package:wrestling_hub/core/constants/app_config.dart';
 
 class WrestlingInfoAlertdialog extends StatelessWidget {
 
@@ -33,7 +34,7 @@ class WrestlingInfoAlertdialog extends StatelessWidget {
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
       alignment: Alignment.center,
-      backgroundColor: WrestlingColors.color_background,
+      backgroundColor: AppColors.colorBackground,
       title: Container(alignment:Alignment.center,child: Text(title,style: Theme.of(context).textTheme.titleLarge)),
       content: contentWidget,
       actions: [

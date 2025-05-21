@@ -1,13 +1,13 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wrestling_hub/core/constants.dart';
+import 'package:wrestling_hub/core/constants/app_colors.dart';
 import 'package:wrestling_hub/core/utils/wrestling_snackbar.dart';
-import 'package:wrestling_hub/core/widgets/error_page.dart';
-import 'package:wrestling_hub/core/widgets/wrestling_form_field.dart';
-import 'package:wrestling_hub/core/widgets/wrestling_progress_bar.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/error_page.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/wrestling_form_field.dart';
 import 'package:wrestling_hub/src/presentation/main/blocs/news_comments/news_comment_bloc.dart';
 import 'package:wrestling_hub/src/presentation/main/widgets/comment_widget.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/wrestling_progress_bar.dart';
 class NewsCommentsScreen extends StatefulWidget {
 
   final String idNews;
@@ -114,7 +114,7 @@ class _NewsCommentsScreen extends State<NewsCommentsScreen> {
          ),
         bottomSheet: Container(
           height: 55,
-          color: WrestlingColors.color_bottom_nav,
+          color: AppColors.colorBottomNav,
           alignment: Alignment.center,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -135,7 +135,7 @@ class _NewsCommentsScreen extends State<NewsCommentsScreen> {
               ),
               const SizedBox(width: 5),
               IconButton(
-                icon: const Icon(Icons.send, color: WrestlingColors.color_red),
+                icon: const Icon(Icons.send, color: AppColors.colorRed),
                 onPressed: () {
                   context.read<NewsCommentBloc>().add(NewsCommentSendEvent(commentFormController.text,widget.idNews,context));
                   },

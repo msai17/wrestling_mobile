@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
-import 'package:wrestling_hub/core/constants.dart';
+import 'package:wrestling_hub/core/constants/app_colors.dart';
+import 'package:wrestling_hub/core/constants/app_config.dart';
 
 
 class NumberFormField extends StatelessWidget {
@@ -39,7 +40,7 @@ class NumberFormField extends StatelessWidget {
       ],
       decoration: InputDecoration(
         counterText: '',
-        fillColor: WrestlingColors.color_bottom_nav,
+        fillColor: AppColors.colorBottomNav,
         filled: true,
         contentPadding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10.0),
         hintText: hintText, alignLabelWithHint: true ,hintStyle: const TextStyle(fontFamily: 'Crimson',fontSize: 13,fontWeight: FontWeight.bold,color: Color(0xffB89E9E)),

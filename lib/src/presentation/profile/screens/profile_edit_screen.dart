@@ -4,14 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
-import 'package:wrestling_hub/core/constants.dart';
+import 'package:wrestling_hub/core/constants/app_colors.dart';
+import 'package:wrestling_hub/core/constants/app_config.dart';
 import 'package:wrestling_hub/core/utils/wrestling_snackbar.dart';
-import 'package:wrestling_hub/core/widgets/modal_bottom_image_picker.dart';
-import 'package:wrestling_hub/core/widgets/show_image.dart';
-import 'package:wrestling_hub/core/widgets/wrestling_button.dart';
-import 'package:wrestling_hub/core/widgets/wrestling_form_field.dart';
-import 'package:wrestling_hub/core/widgets/wrestling_progress_bar.dart';
-import 'package:wrestling_hub/core/widgets/wrestling_simple_alertdialog.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/modal_bottom_image_picker.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/show_image.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/wrestling_button.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/wrestling_form_field.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/wrestling_progress_bar.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/wrestling_simple_alertdialog.dart';
 import 'package:wrestling_hub/src/presentation/profile/blocs/edit/edit_bloc.dart';
 
 class ProfileEditScreen extends StatelessWidget {
@@ -92,7 +93,7 @@ class ProfileEditScreen extends StatelessWidget {
                          child: WrestlingButton(
                              height: 40,
                              titleWidget: const Text('Выбрать фото', style: TextStyle(color: Colors.white, fontSize: 15, fontFamily: 'Crimson')),
-                             primaryColor: WrestlingColors.color_bottom_nav,
+                             primaryColor: AppColors.colorBottomNav,
                              isFilled: true,
                              onPressed: () {
                                ModalBottomImagePicker(
@@ -160,7 +161,7 @@ class ProfileEditScreen extends StatelessWidget {
                          child: WrestlingButton(
                              height: 40,
                              titleWidget: const Text('Сохранить', style: TextStyle(color: Colors.white, fontSize: 15, fontFamily: 'Crimson')),
-                             primaryColor: WrestlingColors.color_red,
+                             primaryColor: AppColors.colorRed,
                              isFilled: true,
                              onPressed: () {
                                if(firstNameController.text.isEmpty || lastNameController.text.isEmpty || patronymicController.text.isEmpty) {

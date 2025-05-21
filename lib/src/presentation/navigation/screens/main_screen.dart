@@ -1,4 +1,4 @@
-import 'package:wrestling_hub/core/constants.dart';
+import 'package:wrestling_hub/core/constants/app_config.dart';
 import 'package:wrestling_hub/core/services/firebase/firebase_service.dart';
 import 'package:wrestling_hub/core/utils/navbar_item.dart';
 import 'package:wrestling_hub/src/presentation/favorites/screens/favorites_screen.dart';
@@ -8,6 +8,8 @@ import 'package:wrestling_hub/src/presentation/main/screens/home_screen.dart';
 import 'package:wrestling_hub/src/presentation/navigation/bloc/navbar_main_bloc.dart';
 import 'package:wrestling_hub/src/presentation/profile/screens/profile_screen.dart';
 import 'package:wrestling_hub/src/presentation/video/screens/videos_screen.dart';
+
+import '../../../../core/constants/app_colors.dart';
 
 class NavBarMainScreen extends StatefulWidget  {
 
@@ -66,8 +68,8 @@ class _NavBarMainScreen extends State<NavBarMainScreen> {
     return BlocBuilder<NavbarMainBloc,NavbarMainState>(
       builder: (context, state) {
         return NavigationBarTheme(data: NavigationBarThemeData(
-          backgroundColor: WrestlingColors.color_bottom_nav,
-          indicatorColor: WrestlingColors.color_red,
+          backgroundColor: AppColors.colorBottomNav,
+          indicatorColor: AppColors.colorRed,
           labelTextStyle: WidgetStateProperty.resolveWith((states) {
             if (states.contains(WidgetState.selected)) {
               return const TextStyle(

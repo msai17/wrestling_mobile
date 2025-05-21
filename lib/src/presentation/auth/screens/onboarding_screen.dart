@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:wrestling_hub/core/constants.dart';
+import 'package:wrestling_hub/core/constants/app_colors.dart';
+import 'package:wrestling_hub/core/constants/app_config.dart';
 import 'package:wrestling_hub/core/route/app_router.dart';
 import 'package:wrestling_hub/src/presentation/auth/widgets/onboarding_content_screen.dart';
 import 'package:wrestling_hub/src/data/user/data_source/local/user_data.dart';
@@ -76,7 +77,7 @@ class _OnBoardingScreen extends State<OnBoardingScreen> {
                           padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(90),
-                            color: WrestlingColors.color_red,
+                            color: AppColors.colorRed,
                           ),
                           child: const Icon(Icons.arrow_forward_ios_rounded,color: Colors.white)
                       )

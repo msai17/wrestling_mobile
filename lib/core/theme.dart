@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'constants.dart';
+import 'constants/app_colors.dart';
 final appTheme = ThemeData(
   appBarTheme: const AppBarTheme(
-    color: WrestlingColors.color_background,
-    iconTheme: IconThemeData(color: WrestlingColors.color_red),
-    actionsIconTheme: IconThemeData(color: WrestlingColors.color_red)
+    color: AppColors.colorBackground,
+    iconTheme: IconThemeData(color: AppColors.colorRed),
+    actionsIconTheme: IconThemeData(color: AppColors.colorRed)
   ),
-  scaffoldBackgroundColor: WrestlingColors.color_background,
+  scaffoldBackgroundColor: AppColors.colorBackground,
   textTheme: const TextTheme(
     labelSmall:TextStyle(
       color: Colors.white,
@@ -27,13 +27,13 @@ final appTheme = ThemeData(
       fontSize: 20,
     ),
     titleMedium: TextStyle(
-      color: WrestlingColors.color_small_text,
+      color: AppColors.colorSmallText,
       fontWeight: FontWeight.w700,
       fontFamily: 'Crimson',
       fontSize: 16,
     ),
     titleSmall: TextStyle(
-      color: WrestlingColors.color_small_text,
+      color: AppColors.colorSmallText,
       fontWeight: FontWeight.w400,
       fontFamily: 'Crimson',
       fontSize: 14,

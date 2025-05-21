@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:wrestling_hub/core/constants/app_colors.dart';
 
-import 'package:wrestling_hub/core/constants.dart';
+import 'package:wrestling_hub/core/constants/app_config.dart';
+import 'package:wrestling_hub/core/constants/app_urls.dart';
 import 'package:wrestling_hub/core/utils/wrestling_copy_clipboard.dart';
 
 class ModalBottomFeedback {
@@ -19,7 +21,7 @@ class ModalBottomFeedback {
     Widget cancelButton = TextButton(
       child: const Text("Закрыть", style: TextStyle(fontSize: 14,
           fontFamily: 'Crimson',
-          color: WrestlingColors.color_small_text,
+          color: AppColors.colorSmallText,
           fontWeight: FontWeight.normal),),
       onPressed: () {
         Navigator.of(context).pop(false);
@@ -27,7 +29,7 @@ class ModalBottomFeedback {
     );
 
     showModalBottomSheet(
-        backgroundColor: WrestlingColors.color_bottom_nav,
+        backgroundColor: AppColors.colorBottomNav,
         context: context,
         builder: (builder) {
           return Padding(
@@ -37,20 +39,20 @@ class ModalBottomFeedback {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Text("Обратная связь",style: TextStyle(fontFamily:'Crimson',fontWeight: FontWeight.w700,fontSize: 15,color: WrestlingColors.color_small_text)),
+                    const Text("Обратная связь",style: TextStyle(fontFamily:'Crimson',fontWeight: FontWeight.w700,fontSize: 15,color: AppColors.colorSmallText)),
                     const SizedBox(height: 12),
                     InkWell(
                       splashColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () {
-                        CopyClipBoard().copy(mailAmonlexa,'Почта скопировано');
+                        CopyClipBoard().copy(AppUrls.mailAmonlexa,'Почта скопировано');
                         Navigator.of(context).pop();
                       },
                       child: const Row(
                         children: [
                             Icon(Icons.mail,color: Colors.cyan),
                             SizedBox(width: 10),
-                            Text(mailAmonlexa)
+                            Text(AppUrls.mailAmonlexa)
                         ],
                       ),
                     ),
@@ -58,7 +60,7 @@ class ModalBottomFeedback {
                     InkWell(
                       splashColor: Colors.transparent,
                       highlightColor: Colors.transparent,
-                      onTap: () => launchUrl(Uri.parse(telegramAmonlexa)),
+                      onTap: () => launchUrl(Uri.parse(AppUrls.telegramAmonlexa)),
                       child: const Row(
                         children: [
                           Icon(Icons.telegram_outlined,color: Colors.cyan),

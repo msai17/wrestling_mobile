@@ -1,10 +1,12 @@
 import 'dart:io';
-import 'package:wrestling_hub/core/constants.dart';
+import 'package:wrestling_hub/core/constants/app_colors.dart';
+import 'package:wrestling_hub/core/constants/app_config.dart';
+import 'package:wrestling_hub/core/constants/app_urls.dart';
 import 'package:wrestling_hub/core/route/app_router.dart';
-import 'package:wrestling_hub/core/widgets/modal_bottom_feedback.dart';
-import 'package:wrestling_hub/core/widgets/wrestling_button.dart';
-import 'package:wrestling_hub/core/widgets/wrestling_info_alertdialog.dart';
-import 'package:wrestling_hub/core/widgets/wrestling_simple_alertdialog.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/modal_bottom_feedback.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/wrestling_button.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/wrestling_info_alertdialog.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/wrestling_simple_alertdialog.dart';
 import 'package:wrestling_hub/src/presentation/auth/blocs/auth/auth_bloc.dart';
 import 'package:wrestling_hub/src/presentation/auth/blocs/auth/auth_state.dart';
 import 'package:flutter/cupertino.dart';
@@ -146,7 +148,7 @@ class _ProfileScreen extends State<ProfileScreen> {
                        child: WrestlingButton(
                            height: 40,
                            titleWidget: Text(state is ProfileLoggedState ? 'Редактировать профиль' : 'Войти в профиль', style: const TextStyle(color: Colors.white, fontSize: 15, fontFamily: 'Crimson')),
-                           primaryColor: WrestlingColors.color_bottom_nav,
+                           primaryColor: AppColors.colorBottomNav,
                            isFilled: true,
                            onPressed: () async {
                              if(state is ProfileLoggedState) {
@@ -173,15 +175,15 @@ class _ProfileScreen extends State<ProfileScreen> {
                        splashColor: Colors.transparent,
                        highlightColor: Colors.transparent,
                        onTap: () {
-                         launchUrl(Uri.parse(donation_link));
+                         launchUrl(Uri.parse(AppUrls.donatLink));
                          },
                        child: Container(
                          margin: const EdgeInsets.all(12.0),
                          padding: const EdgeInsets.all(8.0),
                          decoration: BoxDecoration(
-                             color: WrestlingColors.color_bottom_nav,
+                             color: AppColors.colorBottomNav,
                              borderRadius: BorderRadius.circular(10),
-                             border: Border.all(color: WrestlingColors.color_small_text,width: 1)
+                             border: Border.all(color: AppColors.colorSmallText,width: 1)
                          ),
                          child: Column(
                            crossAxisAlignment: CrossAxisAlignment.start,
@@ -195,7 +197,7 @@ class _ProfileScreen extends State<ProfileScreen> {
                                textAlign: TextAlign.start,
                                text: const TextSpan(
                                  children: <TextSpan>[
-                                   TextSpan(text: donation_link, style: TextStyle(fontWeight: FontWeight.normal, fontSize: 14, fontFamily: 'Roboto', color: Colors.cyanAccent, decoration: TextDecoration.underline)),
+                                   TextSpan(text: AppUrls.donatLink, style: TextStyle(fontWeight: FontWeight.normal, fontSize: 14, fontFamily: 'Roboto', color: Colors.cyanAccent, decoration: TextDecoration.underline)),
                                  ],
                                ),
                              ),
@@ -211,7 +213,7 @@ class _ProfileScreen extends State<ProfileScreen> {
                              icon: CupertinoIcons.doc_append,
                              endIcon: true,
                              onPress: () {
-                               launchUrl(Uri.parse(privacy));
+                               launchUrl(Uri.parse(AppUrls.privacy));
                              }
                              ),
                          Platform.isAndroid ?
@@ -220,7 +222,7 @@ class _ProfileScreen extends State<ProfileScreen> {
                              icon: CupertinoIcons.share,
                              endIcon: false,
                              onPress: ()  async {
-                               await Share.share('Установите мобильное приложение Amonlexa Wrestling Hub, забронируйте  место в 1 клик\n $url_google_play');
+                               await Share.share('Установите мобильное приложение Amonlexa Wrestling Hub, забронируйте  место в 1 клик\n ${AppUrls.storeApp}');
                              }
                              ) : const SizedBox(),
                          ProfileMenuItem(
@@ -228,7 +230,7 @@ class _ProfileScreen extends State<ProfileScreen> {
                              icon: CupertinoIcons.star,
                              endIcon: false,
                              onPress: () async {
-                               launchUrl(Uri.parse(url_google_play));
+                               launchUrl(Uri.parse(AppUrls.storeApp));
                              }
                              ),
                        ],

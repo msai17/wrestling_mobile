@@ -1,5 +1,6 @@
 import 'dart:convert';
-import 'package:wrestling_hub/core/constants.dart';
+import 'package:wrestling_hub/core/constants/app_config.dart';
+import 'package:wrestling_hub/core/constants/app_urls.dart';
 import 'package:wrestling_hub/src/data/main/models/comment.dart';
 import 'package:dio/dio.dart' hide Headers;
 import 'package:retrofit/retrofit.dart';
@@ -26,7 +27,7 @@ class _MainDataSource implements MainDataSource {
   @override
   Future<HttpResponse<MainModel>> getMain(String page) async {
     final request = await client.get(
-        Urls.getMainContent,
+        AppUrls.getMainContent,
         data: json.encode(
         {
           "page" : page
@@ -44,7 +45,7 @@ class _MainDataSource implements MainDataSource {
   @override
   Future<HttpResponse<News>> getFullNews(String id) async {
     final request = await client.get(
-        Urls.getFullNews,
+        AppUrls.getFullNews,
         data: json.encode(
             {
               "id" : id
@@ -63,7 +64,7 @@ class _MainDataSource implements MainDataSource {
   @override
   Future<HttpResponse<List<News>>> getSearchNews(Map<String,String> data) async {
     final request = await client.get(
-        Urls.getSearchNews,
+        AppUrls.getSearchNews,
         data: json.encode(
             {
               "query" : data["query"],
@@ -83,7 +84,7 @@ class _MainDataSource implements MainDataSource {
   @override
   Future<HttpResponse<List<Comment>>> getCommentNews(String id) async {
     final request = await client.get(
-        Urls.getCommentNews,
+        AppUrls.getCommentNews,
         data: json.encode({"id" : id})
     );
     final List<Comment> value;
@@ -100,7 +101,7 @@ class _MainDataSource implements MainDataSource {
   @override
   Future<HttpResponse<List<Comment>>> sendCommentNews(Map<String, dynamic> data) async {
     final request = await client.get(
-        Urls.sendCommentNews,
+        AppUrls.sendCommentNews,
         data: data
     );
     final List<Comment> value;

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:wrestling_hub/core/constants.dart';
+import 'package:wrestling_hub/core/constants/app_urls.dart';
 import 'package:wrestling_hub/src/data/video/models/category_video.dart';
 
 abstract class VideoRemoteDataSource {
@@ -17,7 +17,7 @@ class _VideoRemoteDataSource implements VideoRemoteDataSource {
   @override
   Future<HttpResponse<List<CategoryVideo>>> getVideos() async{
     final request = await client.get(
-        Urls.getVideos,
+      AppUrls.getVideos,
     );
 
 

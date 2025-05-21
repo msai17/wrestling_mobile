@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:wrestling_hub/core/constants/app_colors.dart';
 import 'package:wrestling_hub/core/route/app_router.dart';
-import 'package:wrestling_hub/core/widgets/error_page.dart';
-import 'package:wrestling_hub/core/widgets/wrestling_progress_bar.dart';
-import 'package:wrestling_hub/core/widgets/wrestling_tab_bar.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/error_page.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/wrestling_progress_bar.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/wrestling_tab_bar.dart';
+import 'package:wrestling_hub/src/presentation/video/cubits/videos/videos_cubit.dart';
+import 'package:wrestling_hub/src/presentation/video/cubits/videos/videos_state.dart';
 import 'package:wrestling_hub/src/presentation/video/screens/video_test_screen.dart';
-
-import '../../../../core/constants.dart';
-import '../cubits/videos/videos_cubit.dart';
-import '../cubits/videos/videos_state.dart';
 
 class VideosScreen extends StatefulWidget {
 
@@ -111,9 +110,9 @@ class _VideosScreen extends State<VideosScreen> with TickerProviderStateMixin, A
                 controller: _controller_tab,
                 children: state.pages.map((page) {
                   return RefreshIndicator(
-                    color: WrestlingColors.color_red,
+                    color: AppColors.colorRed,
                       strokeWidth: 2.75,
-                      backgroundColor: WrestlingColors.color_background,
+                      backgroundColor: AppColors.colorBackground,
                       onRefresh: () async {
                       return await context.read<VideosCubit>().onGetVideos(true);
                     },

@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:wrestling_hub/core/route/app_router.dart';
-import 'package:wrestling_hub/core/widgets/wrestling_progress_bar.dart';
 import 'package:wrestling_hub/src/data/main/models/news.dart';
 import 'package:wrestling_hub/src/presentation/main/blocs/news_search/search_news_bloc.dart';
 import 'package:wrestling_hub/src/presentation/main/blocs/news_search/search_news_event.dart';
 import 'package:wrestling_hub/src/presentation/main/blocs/news_search/search_news_state.dart';
 import 'package:wrestling_hub/src/presentation/main/widgets/wrestling_news_card.dart';
 import 'package:wrestling_hub/src/presentation/main/widgets/wrestling_search_widget.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/wrestling_progress_bar.dart';
 class SearchNewsScreen extends StatefulWidget {
 
   const SearchNewsScreen({super.key});
@@ -99,7 +99,7 @@ class _SearchNewsScreen extends State<SearchNewsScreen> {
                                GoRouter.of(context).pushNamed(AppRoute.full_news, extra: news[index]);
                              },
                              );
-                     }
+                        }
                      }
                      );
                    }

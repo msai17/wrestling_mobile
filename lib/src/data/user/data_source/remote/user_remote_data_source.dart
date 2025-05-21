@@ -2,9 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:dio/dio.dart' hide Headers;
 import 'package:retrofit/retrofit.dart';
+import 'package:wrestling_hub/core/constants/app_urls.dart';
 import 'package:wrestling_hub/src/data/user/models/user.dart';
-
-import '../../../../../core/constants.dart';
 abstract class UserRemoteDataSource {
 
   factory UserRemoteDataSource(Dio dio) = _UserRemoteDataSource;
@@ -27,7 +26,7 @@ class _UserRemoteDataSource implements UserRemoteDataSource {
       'image': await MultipartFile.fromFile(image.path,filename: image.absolute.path)
     });
     final request = await client.post(
-        Urls.sendImageServer,
+        AppUrls.sendImageServer,
         data: formData,
         options: Options(
             headers: {
@@ -49,7 +48,7 @@ class _UserRemoteDataSource implements UserRemoteDataSource {
 
   @override
   Future<HttpResponse<User>> editProfileUser(Map<String, dynamic> data) async {
-    final request = await client.get(Urls.editUser, data: data);
+    final request = await client.get(AppUrls.editUser, data: data);
     final User value;
     final parsed = jsonDecode(request.data);
       try{
@@ -67,7 +66,7 @@ class _UserRemoteDataSource implements UserRemoteDataSource {
 
   @override
   Future<HttpResponse<bool>> deleteProfileUser(String token) async {
-    final request = await client.get(Urls.deleteUser, data: jsonEncode({
+    final request = await client.get(AppUrls.deleteUser, data: jsonEncode({
       "token" : token
     }));
     final bool value;
@@ -87,7 +86,7 @@ class _UserRemoteDataSource implements UserRemoteDataSource {
   @override
   Future<HttpResponse<User>> confirmSmsCode(Map<String,dynamic> data) async {
     final request = await client.get(
-        Urls.confirmSmsCode,
+        AppUrls.confirmSmsCode,
         data: json.encode(
             {
               "phone_number" : data['number'],
@@ -111,7 +110,7 @@ class _UserRemoteDataSource implements UserRemoteDataSource {
   @override
   Future<HttpResponse<User>> getUser(String token) async {
     final request = await client.get(
-        Urls.getUser,
+        AppUrls.getUser,
         data: json.encode(
             {
               "token" : token,

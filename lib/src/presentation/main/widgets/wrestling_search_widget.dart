@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../core/constants.dart';
+import 'package:wrestling_hub/core/constants/app_colors.dart';
 
 class WrestlingSearchWidget extends StatelessWidget{
 
@@ -55,7 +55,7 @@ class WrestlingSearchWidget extends StatelessWidget{
             }else{
               return onPressSearch(controller!.text);
             }
-          }, icon: const Icon(Icons.search,color: WrestlingColors.color_red,size: 20)
+          }, icon: const Icon(Icons.search,color: AppColors.colorRed,size: 20)
           )
         ],
       ),

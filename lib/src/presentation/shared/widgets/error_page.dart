@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:wrestling_hub/core/constants.dart';
-import 'package:wrestling_hub/core/widgets/wrestling_button.dart';
+import 'package:wrestling_hub/core/constants/app_colors.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/wrestling_button.dart';
 
 class ErrorPage extends StatelessWidget {
 
@@ -15,7 +15,7 @@ class ErrorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: WrestlingColors.color_background,
+      color: AppColors.colorBackground,
       child: Column(
         children: [
           Expanded(
@@ -23,7 +23,7 @@ class ErrorPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(icon ?? Icons.error_outline_sharp,color: WrestlingColors.color_red,size: 200),
+                Icon(icon ?? Icons.error_outline_sharp,color: AppColors.colorRed,size: 200),
                 const SizedBox(height: 10),
                 Text(errorText!,style: Theme.of(context).textTheme.bodySmall),
               ],
@@ -34,7 +34,7 @@ class ErrorPage extends StatelessWidget {
             child: WrestlingButton(
                 height: 45,
                 titleWidget: Text(buttonText ?? 'Повторить', style: const TextStyle(color: Colors.white, fontSize: 15, fontFamily: 'Crimson')),
-                primaryColor: WrestlingColors.color_red,
+                primaryColor: AppColors.colorRed,
                 isFilled: true,
                 onPressed: () {
                 }

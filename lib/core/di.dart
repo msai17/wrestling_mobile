@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:wrestling_hub/core/constants.dart';
+import 'package:wrestling_hub/core/constants/app_config.dart';
+import 'package:wrestling_hub/core/constants/app_hive_boxes.dart';
 import 'package:wrestling_hub/core/services/firebase/firebase_options.dart';
 import 'package:wrestling_hub/core/services/firebase/firebase_service.dart';
 import 'package:wrestling_hub/src/data/main/data_source/api/main_data_source.dart';
@@ -64,8 +65,8 @@ Future<void> initializeDependencies() async {
   await Hive.initFlutter((await getApplicationDocumentsDirectory()).path);
   Hive.registerAdapter(NewsAdapter());
   Hive.registerAdapter(VideoAdapter());
-  final boxNews = await Hive.openBox<News>(DataBasesNames.boxNews);
-  final boxVideos = await Hive.openBox<Video>(DataBasesNames.boxVideos);
+  final boxNews = await Hive.openBox<News>(AppHiveBoxes.boxNews);
+  final boxVideos = await Hive.openBox<Video>(AppHiveBoxes.boxVideos);
   UserData userData = UserData.instance;
   await userData.initStorage();
 

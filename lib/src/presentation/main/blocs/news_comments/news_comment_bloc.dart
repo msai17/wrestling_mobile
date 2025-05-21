@@ -4,13 +4,13 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import 'package:wrestling_hub/core/resources/data_state.dart';
 import 'package:wrestling_hub/core/route/app_router.dart';
-import 'package:wrestling_hub/core/widgets/modal_bottom_auth.dart';
 import 'package:wrestling_hub/src/data/main/models/comment.dart';
 import 'package:wrestling_hub/src/data/user/data_source/local/user_data.dart';
 import 'package:wrestling_hub/src/domain/main/usecases/get_comments_news_usecase.dart';
 import 'package:wrestling_hub/src/domain/main/usecases/send_news_comment_usecase.dart';
 import 'package:bloc/bloc.dart';
 import 'package:logger/logger.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/modal_bottom_auth.dart';
 
 
 part 'news_comment_event.dart';

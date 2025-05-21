@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:wrestling_hub/core/constants.dart';
+import 'package:wrestling_hub/core/constants/app_colors.dart';
+import 'package:wrestling_hub/core/constants/app_config.dart';
 
 class ModalBottomImagePicker {
 
@@ -15,7 +16,7 @@ class ModalBottomImagePicker {
 
   void show(BuildContext context) {
     showModalBottomSheet(
-        backgroundColor: WrestlingColors.color_bottom_nav,
+        backgroundColor: AppColors.colorBottomNav,
         context: context,
         builder: (builder) {
           return Padding(
@@ -34,7 +35,7 @@ class ModalBottomImagePicker {
                       child: const SizedBox (
                         child: Column (
                           children: [
-                            Icon(Icons.image_search_sharp, size: 70,color: WrestlingColors.color_red), Text('Библиотека',style: TextStyle(fontFamily: 'Crimson',fontSize: 15,color: WrestlingColors.color_red),)
+                            Icon(Icons.image_search_sharp, size: 70,color: AppColors.colorRed), Text('Библиотека',style: TextStyle(fontFamily: 'Crimson',fontSize: 15,color: AppColors.colorRed),)
                         ]
                       ),
                       ),
@@ -48,7 +49,7 @@ class ModalBottomImagePicker {
                       child: const SizedBox (
                         child: Column (
                           children: [
-                             Icon(CupertinoIcons.photo_camera, size: 70,color: WrestlingColors.color_red), Text('Камера',style: TextStyle(fontFamily: 'Crimson',fontSize: 15,color: WrestlingColors.color_red),)
+                             Icon(CupertinoIcons.photo_camera, size: 70,color: AppColors.colorRed), Text('Камера',style: TextStyle(fontFamily: 'Crimson',fontSize: 15,color: AppColors.colorRed),)
                           ],
                         ),
                       ),

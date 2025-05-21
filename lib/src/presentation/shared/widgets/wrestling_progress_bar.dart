@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wrestling_hub/core/constants.dart';
+import 'package:wrestling_hub/core/constants/app_colors.dart';
+import 'package:wrestling_hub/core/constants/app_config.dart';
 class WrestlingProgressBar extends StatelessWidget {
 
   final double? size;
@@ -10,7 +11,7 @@ class WrestlingProgressBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Transform.scale(
       scale: size ?? 0.5,
-      child: const CircularProgressIndicator(color: WrestlingColors.color_red)
+      child: const CircularProgressIndicator(color: AppColors.colorRed)
     );
   }
 

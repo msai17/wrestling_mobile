@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:wrestling_hub/core/constants.dart';
+import 'package:wrestling_hub/core/constants/app_colors.dart';
+import 'package:wrestling_hub/core/constants/app_config.dart';
 import 'package:wrestling_hub/core/route/app_router.dart';
-import 'package:wrestling_hub/core/widgets/error_page.dart';
 import 'package:wrestling_hub/src/presentation/auth/blocs/splash/splash_bloc.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/error_page.dart';
 
 
 class SplashScreen extends StatefulWidget {
@@ -27,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     final txtStyle = Theme.of(context).textTheme;
      return Scaffold(
-      backgroundColor: WrestlingColors.color_background,
+      backgroundColor: AppColors.colorBackground,
       body: BlocConsumer<SplashBloc, SplashState>(
         listener: (context, state) {
           if (state is SplashLoggedState) {

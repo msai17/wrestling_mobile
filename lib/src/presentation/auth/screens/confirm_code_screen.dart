@@ -1,8 +1,7 @@
+import 'package:wrestling_hub/core/constants/app_colors.dart';
+import 'package:wrestling_hub/core/constants/app_urls.dart';
 import 'package:wrestling_hub/core/route/app_router.dart';
 import 'package:wrestling_hub/core/utils/wrestling_snackbar.dart';
-import 'package:wrestling_hub/core/widgets/modal_bottom_feedback.dart';
-import 'package:wrestling_hub/core/widgets/wrestling_button.dart';
-import 'package:wrestling_hub/core/widgets/wrestling_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -12,7 +11,9 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:wrestling_hub/src/presentation/auth/blocs/auth/auth_bloc.dart';
 import 'package:wrestling_hub/src/presentation/auth/blocs/auth/auth_event.dart';
 import 'package:wrestling_hub/src/presentation/auth/blocs/auth/auth_state.dart';
-import '../../../../core/constants.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/modal_bottom_feedback.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/wrestling_button.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/wrestling_progress_bar.dart';
 
 class ConfirmSmsCode extends StatelessWidget {
 
@@ -25,7 +26,7 @@ class ConfirmSmsCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: WrestlingColors.color_background,
+      backgroundColor: AppColors.colorBackground,
       body: BlocListener<AuthBloc, AuthState> (
         bloc: context.read(),
          listener: (BuildContext context, AuthState state) {
@@ -65,7 +66,7 @@ class ConfirmSmsCode extends StatelessWidget {
                           textStyle: Theme.of(context).textTheme.labelLarge,
                           decoration: BoxDecoration(
                               shape: BoxShape.rectangle,
-                              color: WrestlingColors.color_bottom_nav,
+                              color: AppColors.colorBottomNav,
                               borderRadius: BorderRadius.circular(15),
                               border: state is AuthWrongCodeState ? Border.all(color: Colors.red, width: 1.0) : Border.all(color: const Color(0x24000000), width: 1.5)
                           )
@@ -76,7 +77,7 @@ class ConfirmSmsCode extends StatelessWidget {
                     WrestlingButton(
                         height: 40,
                         titleWidget: const Text('Потвердить', style: TextStyle(color: Colors.white, fontSize: 14, fontFamily: 'Crimson')),
-                        primaryColor: WrestlingColors.color_red,
+                        primaryColor: AppColors.colorRed,
                         isFilled:  true,
                         onPressed: () {
                           if(_controllerSms.text.length < 3) {
@@ -90,7 +91,7 @@ class ConfirmSmsCode extends StatelessWidget {
                     InkWell(
                       splashColor: Colors.transparent,
                       highlightColor: Colors.transparent,
-                      onTap: () => launchUrl(Uri.parse(telegramBotAuth)),
+                      onTap: () => launchUrl(Uri.parse(AppUrls.telegramBotAuth)),
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -105,14 +106,14 @@ class ConfirmSmsCode extends StatelessWidget {
                       onTap: () {
                         const ModalBottomFeedback().show(context);
                       },
-                      child: const Text("Нужна помощь?",style: TextStyle(fontFamily:'Crimson',fontWeight: FontWeight.normal,fontSize: 14,color: WrestlingColors.color_small_text)),
+                      child: const Text("Нужна помощь?",style: TextStyle(fontFamily:'Crimson',fontWeight: FontWeight.normal,fontSize: 14,color: AppColors.colorSmallText)),
                     ),
                     const SizedBox(height: 12),
                     InkWell(
                       onTap: () {
                         context.goNamed(AppRoute.main);
                       },
-                      child: const Text("Нету телеграма? пропустить",style: TextStyle(fontFamily:'Crimson',fontWeight: FontWeight.normal,fontSize: 14,color: WrestlingColors.color_small_text)),
+                      child: const Text("Нету телеграма? пропустить",style: TextStyle(fontFamily:'Crimson',fontWeight: FontWeight.normal,fontSize: 14,color: AppColors.colorSmallText)),
                     )
                   ],
                 ),

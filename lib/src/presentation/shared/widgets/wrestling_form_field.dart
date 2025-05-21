@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wrestling_hub/core/constants.dart';
+import 'package:wrestling_hub/core/constants/app_colors.dart';
+import 'package:wrestling_hub/core/constants/app_config.dart';
 
 
 class WrestlingFormField extends StatelessWidget {
@@ -35,7 +36,7 @@ class WrestlingFormField extends StatelessWidget {
         keyboardType: inputType,
         decoration: InputDecoration(
           counterText: '',
-          fillColor: WrestlingColors.color_bottom_nav,
+          fillColor: AppColors.colorBottomNav,
           filled: true,
           contentPadding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10.0),
           hintText: hintText, alignLabelWithHint: true ,hintStyle: const TextStyle(fontFamily: 'Crimson',fontSize: 13,fontWeight: FontWeight.bold,color: Color(0xffB89E9E)),

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:wrestling_hub/core/services/vk_video/src/utils/controllers/vk_video_controller.dart';
 import 'package:wrestling_hub/core/services/vk_video/vk_video.dart';
-import 'package:wrestling_hub/core/widgets/wrestling_info_alertdialog.dart';
 import 'package:wrestling_hub/src/data/video/models/video.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/wrestling_info_alertdialog.dart';
 class VideoVkPlayerScreen extends StatefulWidget {
 
   final Video video;

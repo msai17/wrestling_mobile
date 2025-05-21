@@ -4,11 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:wrestling_hub/core/constants.dart';
+import 'package:wrestling_hub/core/constants/app_config.dart';
+import 'package:wrestling_hub/core/constants/app_urls.dart';
 import 'package:wrestling_hub/core/route/app_router.dart';
 import 'package:wrestling_hub/core/utils/wrestling_copy_clipboard.dart';
-import 'package:wrestling_hub/core/widgets/show_image.dart';
 import 'package:wrestling_hub/src/data/video/models/video.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/show_image.dart';
 import 'package:wrestling_hub/src/presentation/video/cubits/video_cubit/video_favorite_cubit.dart';
 
 class VideoPreviewWidget extends StatelessWidget {
@@ -94,7 +95,7 @@ class VideoPreviewWidget extends StatelessWidget {
                          ),
                          PopupMenuItem(
                              onTap: () async {
-                               await Share.share('${ video.name}\nссылка: ${ video.urlVideo}\nСкачать мобильное приложение\nIOS: $urlAppstore\nAndroid: $url_google_play ');
+                               await Share.share('${ video.name}\nссылка: ${ video.urlVideo}\nСкачать мобильное приложение\nIOS: ${AppUrls.appStore}\nAndroid:  ${AppUrls.googlePlay}');
                                },
                              child:Text('Поделиться',style: Theme.of(context).textTheme.labelSmall)
                          ),

@@ -1,10 +1,9 @@
 import 'package:widget_zoom/widget_zoom.dart';
-import 'package:wrestling_hub/core/constants.dart';
+import 'package:wrestling_hub/core/constants/app_colors.dart';
+import 'package:wrestling_hub/core/constants/app_config.dart';
+import 'package:wrestling_hub/core/constants/app_resource.dart';
+import 'package:wrestling_hub/core/constants/app_urls.dart';
 import 'package:wrestling_hub/core/route/app_router.dart';
-import 'package:wrestling_hub/core/widgets/error_page.dart';
-import 'package:wrestling_hub/core/widgets/show_image.dart';
-import 'package:wrestling_hub/core/widgets/wrestling_button.dart';
-import 'package:wrestling_hub/core/widgets/wrestling_progress_bar.dart';
 import 'package:wrestling_hub/src/data/main/models/news.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,6 +15,10 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:wrestling_hub/src/presentation/main/blocs/news_details/details_news_bloc.dart';
 import 'package:wrestling_hub/src/presentation/main/blocs/news_details/details_news_event.dart';
 import 'package:wrestling_hub/src/presentation/main/blocs/news_details/details_news_state.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/error_page.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/show_image.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/wrestling_button.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/wrestling_progress_bar.dart';
 
 class FullNewsScreen extends StatefulWidget {
 
@@ -88,10 +91,10 @@ class _FullNewsScreen extends State<FullNewsScreen>  {
              ),
              IconButton(
                  onPressed: () async {
-                   String content = '${state.full!.title}\n${state.full!.description}\nИсточник:${state.full!.link}\nСкачать приложение: $url_google_play';
+                   String content = '${state.full!.title}\n${state.full!.description}\nИсточник:${state.full!.link}\nСкачать приложение: ${AppUrls.storeApp}';
                    await Share.share(content);
                    },
-                 icon: SvgPicture.asset(WrestlingResources.icon_share, colorFilter: const ColorFilter.mode(WrestlingColors.color_red, BlendMode.srcIn))
+                 icon: SvgPicture.asset(AppResources.iconShare, colorFilter: const ColorFilter.mode(AppColors.colorRed, BlendMode.srcIn))
              ),
             ],
          ) : AppBar(),
@@ -138,7 +141,7 @@ class _FullNewsScreen extends State<FullNewsScreen>  {
                      effect: const ScrollingDotsEffect(
                          dotHeight: 5,
                          dotWidth: 5,
-                         activeDotColor: WrestlingColors.color_red,
+                         activeDotColor: AppColors.colorRed,
                          spacing: 5.0
                      ),
                      onDotClicked: (index) => pageImagesController!.animateToPage(index, duration: const Duration(milliseconds: 500), curve: Curves.easeIn)
@@ -148,7 +151,7 @@ class _FullNewsScreen extends State<FullNewsScreen>  {
                  state.full!.link!.isNotEmpty ? WrestlingButton(
                      height: 50,
                      titleWidget: const Text('Открыть источник', style: TextStyle(color: Colors.white, fontSize: 15, fontFamily: 'Roboto')),
-                     primaryColor: WrestlingColors.color_red,
+                     primaryColor: AppColors.colorRed,
                      isFilled: true,
                      onPressed: () {
                        launchUrl(Uri.parse(state.full!.link!));

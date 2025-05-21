@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:wrestling_hub/core/constants.dart';
-import 'package:wrestling_hub/core/widgets/show_image.dart';
+import 'package:wrestling_hub/core/constants/app_colors.dart';
+import 'package:wrestling_hub/core/constants/app_config.dart';
+import 'package:wrestling_hub/src/presentation/shared/widgets/show_image.dart';
 
 
 class ProfileWidget extends StatelessWidget {
@@ -17,7 +18,7 @@ class ProfileWidget extends StatelessWidget {
     return Container(
         decoration: BoxDecoration(
           shape: BoxShape.rectangle,
-          border: Border.all(color: WrestlingColors.color_red, width: 1),
+          border: Border.all(color: AppColors.colorRed, width: 1),
           borderRadius: BorderRadius.circular(90),
         ),
       child: avatar!.isEmpty ? Icon(Icons.account_circle_outlined, color: Colors.white, size: height) : ShowImage(image: avatar!, width: width, circular: 90,height: height,isCard: false,)
