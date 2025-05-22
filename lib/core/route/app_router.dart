@@ -2,18 +2,27 @@ class AppRoute {
   AppRoute._();
 
   static const root = '/';
+  //auth
   static const onboard = '/onboard';
   static const splash = '/splash';
   static const phoneField = '/phone_field';
   static const selectAuth = '/select_auth';
-  static const profileEdit = '/profile/edit';
   static const sms = '/sms';
-  static const home = '/home';
+  //main
+  static const main = '/main';
   static const searchNews = '/news/search';
   static const fullNews = '/news/full';
   static const commentNews = '/news/comments';
+  //video
+  static const video = '/videos';
   static const vkVideo = '/vk_video';
-  static const vkVideoInfo = '/vk_video_info';
+  static const vkVideoInfo = '/vk_video/info';
+  //profile
+  static const profile = '/profile';
+  static const profileEdit = '/profile/edit';
+  //favorite
+  static const favorite = '/favorite';
+  //others
   static const privacy = '/privacy';
 
 

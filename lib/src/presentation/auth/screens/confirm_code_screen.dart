@@ -111,7 +111,7 @@ class ConfirmSmsCode extends StatelessWidget {
                     const SizedBox(height: 12),
                     InkWell(
                       onTap: () {
-                        context.goNamed(AppRoute.home);
+                        context.goNamed(AppRoute.main);
                       },
                       child: const Text("Нету телеграма? пропустить",style: TextStyle(fontFamily:'Crimson',fontWeight: FontWeight.normal,fontSize: 14,color: AppColors.colorSmallText)),
                     )

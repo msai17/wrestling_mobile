@@ -19,7 +19,7 @@ class VideosScreen extends StatefulWidget {
 
 }
 
-class _VideosScreen extends State<VideosScreen> with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
+class _VideosScreen extends State<VideosScreen> with TickerProviderStateMixin{
 
   TabController? _controller_tab;
 
@@ -37,12 +37,10 @@ class _VideosScreen extends State<VideosScreen> with TickerProviderStateMixin, A
     super.dispose();
   }
 
-  @override
-  bool get wantKeepAlive => true;
+
 
   @override
   Widget build(BuildContext context) {
-    super.build(context);
     return Scaffold(
       // floatingActionButton: FloatingActionButton(
       //   onPressed: () {

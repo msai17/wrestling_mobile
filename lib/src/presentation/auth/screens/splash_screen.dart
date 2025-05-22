@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: BlocConsumer<SplashBloc, SplashState>(
         listener: (context, state) {
           if (state is SplashLoggedState) {
-            context.goNamed(AppRoute.home);
+            context.goNamed(AppRoute.main);
           }
           if (state is SplashFirstLaunchState) {
             context.goNamed(AppRoute.onboard);

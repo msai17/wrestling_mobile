@@ -51,7 +51,6 @@ import 'package:wrestling_hub/src/presentation/main/blocs/main/main_bloc.dart';
 import 'package:wrestling_hub/src/presentation/main/blocs/news_comments/news_comment_bloc.dart';
 import 'package:wrestling_hub/src/presentation/main/blocs/news_details/details_news_bloc.dart';
 import 'package:wrestling_hub/src/presentation/main/blocs/news_search/search_news_bloc.dart';
-import 'package:wrestling_hub/src/presentation/navigation/bloc/navbar_main_bloc.dart';
 import 'package:wrestling_hub/src/presentation/profile/blocs/edit/edit_bloc.dart';
 import 'package:wrestling_hub/src/presentation/profile/blocs/profile/profile_bloc.dart';
 import 'package:wrestling_hub/src/presentation/video/cubits/video_cubit/video_favorite_cubit.dart';
@@ -116,7 +115,6 @@ Future<void> initializeDependencies() async {
   sl.registerSingleton<FirebaseService>(FirebaseService(sl(),userData));
 
   // Blocs
-  sl.registerFactory<NavbarMainBloc>(() => NavbarMainBloc());
   sl.registerFactory<MainBloc>(() => MainBloc(sl(), sl(),sl()));
   sl.registerFactory<DetailsNewsBloc>(() => DetailsNewsBloc(sl(), sl(),sl(),sl(),sl()));
   sl.registerFactory<SearchNewsBloc>(() => SearchNewsBloc(sl(), sl()));
