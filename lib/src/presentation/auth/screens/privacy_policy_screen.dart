@@ -12,7 +12,6 @@ class PrivacyPolicyScreen extends StatefulWidget {
 class _PrivacyPolicyScreen extends State<PrivacyPolicyScreen> {
 
 
-  //todo Потом доделаю
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -160,7 +160,7 @@ class _ProfileScreen extends State<ProfileScreen> {
                                  }
                                });
                              }else{
-                               GoRouter.of(context).pushNamed(AppRoute.selectAuth).then((val) {
+                               GoRouter.of(context).pushNamed(AppRoute.auth).then((val) {
                                  if(val == 'auth') {
                                    if(context.mounted) {
                                      context.read<ProfileBloc>().add(ProfileGetLocalEvent());
