@@ -12,6 +12,7 @@ abstract class UserRemoteDataSource {
   Future<HttpResponse<bool>> deleteProfileUser(String token);
   Future<HttpResponse<User>> confirmSmsCode(Map<String,dynamic> data);
   Future<HttpResponse<User>> getUser(String token);
+  Future<HttpResponse<User>> signInGoogle();
 }
 
 class _UserRemoteDataSource implements UserRemoteDataSource {
@@ -109,6 +110,29 @@ class _UserRemoteDataSource implements UserRemoteDataSource {
 
   @override
   Future<HttpResponse<User>> getUser(String token) async {
+    final request = await client.get(
+        AppUrls.getUser,
+        data: json.encode(
+            {
+              "token" : token,
+            }
+        ));
+    final User value;
+    final parsed = jsonDecode(request.data) ?? [];
+    try{
+      if(parsed['user'] != null) {
+        value = User.fromJson(parsed['user']);
+      }else{
+        value = User();
+      }
+    }catch(e) {
+      rethrow;
+    }
+    return HttpResponse(value, request);
+  }
+
+  @override
+  Future<HttpResponse<User>> signInGoogle() async {
     final request = await client.get(
         AppUrls.getUser,
         data: json.encode(

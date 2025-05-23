@@ -2,7 +2,8 @@ import 'package:wrestling_hub/core/constants/app_colors.dart';
 import 'package:wrestling_hub/core/constants/app_resource.dart';
 import 'package:wrestling_hub/core/constants/app_urls.dart';
 import 'package:wrestling_hub/core/route/app_router.dart';
-import 'package:wrestling_hub/src/presentation/auth/blocs/number_phone/number_phone_bloc.dart';
+import 'package:wrestling_hub/src/presentation/auth/blocs/auth/auth_bloc.dart';
+import 'package:wrestling_hub/src/presentation/auth/blocs/number_phone/sign_in_cubit.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,7 +40,7 @@ class _NumberPhoneScreen extends State<NumberPhoneScreen>{
         fontSize: 14,
         fontFamily: 'Crimson',
         color: AppColors.colorSmallText);
-    return BlocConsumer<NumberPhoneBloc, bool>(
+    return BlocConsumer<SignInC, bool>(
       listener: (context, state) {
         state;
       },
@@ -53,7 +54,7 @@ class _NumberPhoneScreen extends State<NumberPhoneScreen>{
             crossAxisAlignment: CrossAxisAlignment.center,
             spacing: 10,
             children: [
-              const SizedBox(height: 80),
+              const SizedBox(height: 50),
               Center(
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(30),
@@ -83,7 +84,35 @@ class _NumberPhoneScreen extends State<NumberPhoneScreen>{
                       fontWeight: FontWeight.normal,
                       fontSize: 14,
                       color: AppColors.colorWhite)),
+              WrestlingButton(
+                  height: 40,
+                  titleWidget: const Text('Далее',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontFamily: 'Crimson')),
+                  primaryColor: AppColors.colorRed,
+                  isFilled: state,
+                  onPressed: () {
+                    if (numberController.text.length > 15) {
+                      GoRouter.of(context).pushReplacementNamed(
+                          AppRoute.sms,
+                          pathParameters: {
+                            'number': numberController.text.toString()
+                          });
+                    } else {
+                      Fluttertoast.showToast(
+                          msg: 'Пожалуйста введите корректный номер');
+                    }
+                  }),
               const Expanded(child: SizedBox()),
+              const Text(
+                  "Продолжить с аккаунтом",
+                  style: TextStyle(
+                      fontFamily: 'Crimson',
+                      fontWeight: FontWeight.normal,
+                      fontSize: 14,
+                      color: AppColors.colorWhite)),
               Row(
                 spacing: 10,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -92,7 +121,9 @@ class _NumberPhoneScreen extends State<NumberPhoneScreen>{
                     title: 'Войти по Google',
                     iconPath: AppResources.iconGoogle,
                     onPressed: () {
-
+                      context
+                          .read<AuthBloc>()
+                          .add();
                     }
                   ),
                   GoogleSignOutWidget(
@@ -126,34 +157,6 @@ class _NumberPhoneScreen extends State<NumberPhoneScreen>{
                         text: ' и принимаю  условия', style: noUnderlineStyle),
                   ],
                 ),
-              ),
-              Align(
-                alignment: Alignment.topRight,
-                child: Container(
-                    height: 40,
-                    width: 84,
-                    alignment: Alignment.centerRight,
-                    child: WrestlingButton(
-                        height: 40,
-                        titleWidget: const Text('Далее',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
-                                fontFamily: 'Crimson')),
-                        primaryColor: AppColors.colorRed,
-                        isFilled: state,
-                        onPressed: () {
-                          if (numberController.text.length > 15) {
-                            GoRouter.of(context).pushReplacementNamed(
-                                AppRoute.sms,
-                                pathParameters: {
-                                  'number': numberController.text.toString()
-                                });
-                          } else {
-                            Fluttertoast.showToast(
-                                msg: 'Пожалуйста введите корректный номер');
-                          }
-                        })),
               ),
             ],
           ),
